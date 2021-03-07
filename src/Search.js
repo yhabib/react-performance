@@ -11,7 +11,7 @@ const getItems = filter => {
   })
 }
 
-function Search({rerender}) {
+function Search() {
   const [filter, setFilter] = useState('')
   const zipcodes = getItems(filter)
 
