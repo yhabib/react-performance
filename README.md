@@ -18,6 +18,10 @@ have a super optimized webpack
 - `<React.Suspense>` should be the closest to the component we want to lazy load
 - Coverage view to show unused code
 
+Deployed versions:
+* [Without lazy loading](https://deploy-preview-1--adoring-gates-8a257a.netlify.app/)
+* [With lazy loading](https://deploy-preview-2--adoring-gates-8a257a.netlify.app/)
+
 
 ## Data memoization
 
