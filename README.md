@@ -9,10 +9,17 @@ Deep dive into how to optimize react applications.
 - [ ] Context optimization
 - [ ] Performance optimization with WebWorkers
 
-
-**Notes**: This application has been created with create-react-app thus a super optimized webpack
+**Notes**: This application has been created with create-react-app therefore we
+have a super optimized webpack
 
 ## React.Lazy
+
+- A component that we want to lazy load has to be exported as default module
+- `<React.Suspense>` should be the closest to the component we want to lazy load
+- Coverage view to show unused code
+
+
+## Data memoization
 
 
 
