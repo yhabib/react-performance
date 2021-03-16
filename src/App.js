@@ -2,7 +2,8 @@ import React, {useState} from 'react'
 
 import './App.css'
 import {useForceRerender} from './utils'
-import Search from './Search'
+
+const Search = React.lazy(() => import('./Search'))
 
 function App() {
   const [showSearch, setShowSearch] = useState(false)
@@ -15,6 +16,7 @@ function App() {
       <button onClick={rerender}>Rerender page</button>
       <button onClick={() => setShowSearch(true)}>Show Search</button>
       {showSearch ? <Search /> : null}
+      <React.Suspense fallback={<>Loading ....</>}></React.Suspense>
     </div>
   )
 }
