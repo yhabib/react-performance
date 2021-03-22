@@ -1,7 +1,8 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
+
 import './App.css'
-import Search from './Search'
 import {useForceRerender} from './utils'
+import Search from './Search'
 
 function App() {
   const [showSearch, setShowSearch] = useState(false)
@@ -13,7 +14,6 @@ function App() {
 
       <button onClick={rerender}>Rerender page</button>
       <button onClick={() => setShowSearch(true)}>Show Search</button>
-
       {showSearch ? <Search /> : null}
     </div>
   )
