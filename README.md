@@ -2,7 +2,7 @@
 
 Deep dive into how to optimize react applications.
 
-- [ ] Code splitting with React.Lazy
+- [x] Code splitting with React.Lazy
 - [ ] Data memoization with React.useMemo
 - [ ] Component optimization with React.memo
 - [ ] Reporting with web-vitals
@@ -14,16 +14,27 @@ have a super optimized webpack
 
 ## React.Lazy
 
+Notes:
+
 - A component that we want to lazy load has to be exported as default module
 - `<React.Suspense>` should be the closest to the component we want to lazy load
+- Throttle for the network to see it better
 - Coverage view to show unused code
+- [Webpack magic comments](https://webpack.js.org/api/module-methods/#magic-comments)
+
+Steps:
+
+1. Network and app with not lazied code.
+2. Lazy code and how it behaves
+3. Eager loading
+4. Webpack magic comments
+5. Move around Suspense
 
 Deployed versions:
-* [Without lazy loading](https://deploy-preview-1--adoring-gates-8a257a.netlify.app/)
-* [With lazy loading](https://deploy-preview-2--adoring-gates-8a257a.netlify.app/)
 
+- [No lazy loading](https://deploy-preview-1--adoring-gates-8a257a.netlify.app/)
+- [Lazy loading](https://deploy-preview-3--adoring-gates-8a257a.netlify.app/)
+- [Eager lazy loading](https://deploy-preview-4--adoring-gates-8a257a.netlify.app/)
+- [Magic comment](https://deploy-preview-5--adoring-gates-8a257a.netlify.app/)
 
 ## Data memoization
-
-
-
