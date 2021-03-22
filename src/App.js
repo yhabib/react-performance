@@ -15,8 +15,9 @@ function App() {
 
       <button onClick={rerender}>Rerender page</button>
       <button onClick={() => setShowSearch(true)}>Show Search</button>
-      {showSearch ? <Search /> : null}
-      <React.Suspense fallback={<>Loading ....</>}></React.Suspense>
+      <React.Suspense fallback={<>Loading ....</>}>
+        {showSearch && <Search />}
+      </React.Suspense>
     </div>
   )
 }
