@@ -15,7 +15,11 @@ function App() {
       <h1>React performance</h1>
 
       <button onClick={rerender}>Rerender page</button>
-      <button onClick={() => setShowSearch(true)} onFocus={loadModule} onMouseEnter={loadModule}>
+      <button
+        onClick={() => setShowSearch(true)}
+        onFocus={loadModule}
+        onMouseEnter={loadModule}
+      >
         Show Search
       </button>
       <React.Suspense fallback={<>Loading ....</>}>
