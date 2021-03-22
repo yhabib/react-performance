@@ -24,10 +24,10 @@ Notes:
 
 Steps:
 
-1. Network and app with not lazied code.
-2. Lazy code and how it behaves
-3. Eager loading
-4. Webpack magic comments
+1. Network and app with no lazy code.
+2. Lazy code (lazy-sol-1)
+3. Eager loading (lazy-sol-2)
+4. Webpack magic comments (lazy-sol-3)
 5. Move around Suspense
 
 Deployed versions:
