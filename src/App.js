@@ -1,7 +1,10 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
+
 import './App.css'
-import Search from './Search'
 import {useForceRerender} from './utils'
+
+const loadModule = () => import('./Search')
+const Search = React.lazy(loadModule)
 
 function App() {
   const [showSearch, setShowSearch] = useState(false)
@@ -12,9 +15,16 @@ function App() {
       <h1>React performance</h1>
 
       <button onClick={rerender}>Rerender page</button>
-      <button onClick={() => setShowSearch(true)}>Show Search</button>
-
-      {showSearch ? <Search /> : null}
+      <button
+        onClick={() => setShowSearch(true)}
+        onFocus={loadModule}
+        onMouseEnter={loadModule}
+      >
+        Show Search
+      </button>
+      <React.Suspense fallback={<>Loading ....</>}>
+        {showSearch ? <Search /> : null}
+      </React.Suspense>
     </div>
   )
 }
