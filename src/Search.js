@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import {matchSorter} from 'match-sorter'
 import {useState} from 'react'
+import {matchSorter} from 'match-sorter'
+
 import data from './data.json'
 
 const getItems = filter => {
