@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {matchSorter} from 'match-sorter'
-import {useState} from 'react'
+import {useMemo, useState} from 'react'
 import data from './data.json'
 
 const getItems = filter => {
@@ -13,7 +13,7 @@ const getItems = filter => {
 
 function Search() {
   const [filter, setFilter] = useState('')
-  const zipcodes = getItems(filter)
+  const zipcodes = useMemo(() => getItems(filter), [filter])
 
   return (
     <div
