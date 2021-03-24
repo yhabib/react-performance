@@ -1,10 +1,11 @@
 import {useState} from 'react'
 import './App.css'
+import Greet from './Greet'
 import Search from './Search'
 import {useForceRerender} from './utils'
 
 function App() {
-  const [showSearch, setShowSearch] = useState(false)
+  const [visibleExample, setVisibleExample] = useState(false)
   const rerender = useForceRerender()
 
   return (
@@ -12,9 +13,11 @@ function App() {
       <h1>React performance</h1>
 
       <button onClick={rerender}>Rerender page</button>
-      <button onClick={() => setShowSearch(true)}>Show Search</button>
+      <button onClick={() => setVisibleExample('search')}>Show Search</button>
+      <button onClick={() => setVisibleExample('greet')}>Show Greet</button>
 
-      {showSearch ? <Search /> : null}
+      {visibleExample === 'search' ? <Search /> : null}
+      {visibleExample === 'greet' ? <Greet /> : null}
     </div>
   )
 }
