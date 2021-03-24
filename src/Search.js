@@ -1,20 +1,16 @@
 /** @jsxImportSource @emotion/react */
-import {matchSorter} from 'match-sorter'
-import {useState} from 'react'
-import data from './data.json'
-
-const getItems = filter => {
-  if (!filter) return data
-
-  return matchSorter(data, filter, {
-    keys: ['place'],
-  })
-}
+import {useEffect, useState} from 'react'
+import {useAsync} from './utils'
+import {getItemsAsync} from './workerized-get-items'
 
 function Search() {
   const [filter, setFilter] = useState('')
-  const zipcodes = getItems(filter)
 
+  const {data: allItems, run} = useAsync({data: []})
+  useEffect(() => {
+    run(getItemsAsync(filter))
+  }, [filter, run])
+  const zipcodes = allItems.slice(0, 100)
   return (
     <div
       css={{
