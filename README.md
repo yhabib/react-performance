@@ -69,6 +69,8 @@ Versions:
 - React exists because third one is super slow. So the second part helps to find
   out what needs to be changed so it can target it
 
+Versions:
+
 - [Default](https://adoring-gates-8a257a.netlify.app/)
 - [React.memo](https://deploy-preview-8--adoring-gates-8a257a.netlify.app/)
 
