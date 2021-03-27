@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import {matchSorter} from 'match-sorter'
-import {useState} from 'react'
+import {memo, useMemo, useState} from 'react'
 import data from './data.json'
 
 const getItems = filter => {
@@ -11,13 +11,19 @@ const getItems = filter => {
   })
 }
 
+function Entry({i, zipcode, place}) {
+  return <li key={i} style={{padding: '5px 0'}}>{`${zipcode} : ${place}`}</li>
+}
+
+const MemoEntry = memo(Entry)
+
 function Search() {
   const [filter, setFilter] = useState('')
-  const zipcodes = getItems(filter)
+  const zipcodes = useMemo(() => getItems(filter), [filter])
 
   return (
     <div
-      css={{
+      style={{
         padding: '5px',
         display: 'flex',
         flexFlow: 'column',
@@ -26,7 +32,7 @@ function Search() {
     >
       <h3>Swiss Zipcodes</h3>
       <div
-        css={{
+        style={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -35,14 +41,14 @@ function Search() {
         <label htmlFor="place">Search for place</label>
         <input
           id="place"
-          css={{marginLeft: '10px', padding: '5px'}}
+          style={{marginLeft: '10px', padding: '5px'}}
           type="search"
           onChange={e => setFilter(e.target.value)}
         />
       </div>
 
       <ul
-        css={{
+        style={{
           height: '500px',
           overflowY: 'auto',
           border: '1px solid black',
@@ -55,15 +61,7 @@ function Search() {
         }}
       >
         {zipcodes.map((zip, i) => (
-          <li
-            key={i}
-            css={{
-              padding: '5px 0',
-              ':hover': {
-                backgroundColor: 'lightGrey',
-              },
-            }}
-          >{`${zip.zipcode} : ${zip.place}`}</li>
+          <MemoEntry i={i} zipcode={zip.zipcode} place={zip.place} />
         ))}
       </ul>
     </div>
